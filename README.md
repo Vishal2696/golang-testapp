@@ -33,3 +33,9 @@ Please refer to the `deployment-instructions.md` file to see the steps to deploy
 **Destruction Instructions:**
 
 Please refer to the `destroy-instructions.md` file for a safe destroy of all the resources created.
+
+**My Decisions:**
+
+I want to address out certain decisions that I have taken for this deployment below. 
+1. I did not use AWS load balancer ingress controller to expose the application just to save my time and to simplify the deployment process. The same application can very well be exposed using AWS load balancer ingress controller also.
+2. I did not want to include the ability to deploy to any aws region just to save my time and simplify the documentation part. This support can very well be added by including the terraform `data` resources and using `map` type variables.
