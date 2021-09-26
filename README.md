@@ -2,12 +2,17 @@
 
 **Description:**
     
- This repo contains the instructions on how to deploy the servian Techchallenge app in AWS using EKS and RDS. 
+This repo contains the instructions on how to deploy a containerised version of servian Techchallenge app in AWS using EKS and RDS. 
+ 
+The Techchallenge app is a simple application written in Go and connects to a postgresql DB. More information on the application's code and functioning can be obtained from it's parent repository. 
+https://github.com/servian/TechChallengeApp
+ 
  **Requirements:**
  1. Terraform version v0.12.24 (`terraform --version`).    
  2. AWS Account with a user or role access to `ec2:*`, `rds:*`, `eks:*`, IAM access to create,delete,attach,detach IAM roles and policies 
  3. kubectl v1.19.2 (Preferred).
  4. aws cli version aws-cli/2.0.52 (`aws --version`)
+ 5. Basic knowledge of AWS, Terraform and Kubernetes.
  
 **Limitation:**
 
