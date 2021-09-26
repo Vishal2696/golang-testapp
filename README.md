@@ -31,4 +31,5 @@ This implementation is designed to be launched in aws region `ap-south-1`. This 
 Please refer to the `deployment-instructions.md` file to see the steps to deploy this application.
 
 **Destruction Instructions:**
+
 Please refer to the `destroy-instructions.md` file for a safe destroy of all the resources created.
