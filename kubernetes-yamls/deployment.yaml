@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+        name: serviantest
+spec:
+    selector:
+       matchLabels:
+          app: servian
+    replicas: 1 
+    template:
+       metadata:
+         labels:
+            app: servian
+       spec:
+          containers:
+            - name: serviantest
+              image: vishal736649/golangapp
+              env:
+                 - name: VTT_DBUSER
+                   valueFrom:
+                       secretKeyRef:
+                           name: appenvs
+                           key: dbuser
+                 - name: VTT_DBPASSWORD
+                   valueFrom:
+                       secretKeyRef:
+                          name: appenvs
+                          key: dbpassword
+                 - name: VTT_DBNAME
+                   valueFrom:
+                       secretKeyRef:
+                          name: appenvs
+                          key: dbname
+                 - name: VTT_DBHOST
+                   valueFrom:
+                      secretKeyRef:
+                          name: appenvs
+                          key: dbhost
+                 - name: VTT_DBPORT
+                   value: "5432"
+                 - name: VTT_LISTENHOST
+                   value: "0.0.0.0"
+                 - name: VTT_LISTENPORT
+                   value: "5000"
+              ports: 
+              - containerPort: 5000
+              readinessProbe: 
+                initialDelaySeconds: 5
+                periodSeconds: 8
+                timeoutSeconds: 3
+                successThreshold: 1
+                failureThreshold: 3
+                httpGet:
+                        path: /healthcheck/
+                        port: 5000

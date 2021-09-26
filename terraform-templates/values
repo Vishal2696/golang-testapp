@@ -1,0 +1,5 @@
+postgres_adminusername = "entervaluehere"
+postgres_adminpassword = "entervaluehere"
+database_name = "entervaluehere"
+rds_publicaccess = "enter_true_or_false"
+kubernetes_version = "entervaluehere"
