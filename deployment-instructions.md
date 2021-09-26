@@ -16,6 +16,7 @@ kubernetes_version = Version of kubernetes for the control plane
 Sample output:
 rds_access_endpoint = rds-apptest01.XXXXXXX.ap-south-1.rds.amazonaws.com:5432
 ```
+7. Keep the directory where you have entered the above commands safe without editing any files. As you will need them when destroying. For more information on how to destroy the resources refer to the `destroy-instructions.md` file.
 
 **Kubernetes Deployment:**
 1. Navigate to `kubernetes-yamls` directory and open the file `secret.yaml` with your preferred editor.
