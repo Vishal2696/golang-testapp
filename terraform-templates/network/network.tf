@@ -102,24 +102,6 @@ resource "aws_security_group" "EKS-Controlplane"{
     }
 }
 
-resource "aws_security_group" "rds_access"{
-    name = var.rdsaccess_sg_name
-    vpc_id = aws_vpc.prod.id
-    ingress {
-       from_port   = 0
-       to_port     = 0
-       protocol    = "-1"
-       cidr_blocks = [var.vpc_cidr]
-    }
-    egress {
-       from_port   = 0
-       to_port     = 0
-       protocol    = "-1"
-       cidr_blocks = ["0.0.0.0/0"]
-    }
-}
-
-
 output "pubsubnet01-id" {
    value = aws_subnet.public-az1.id
 }
@@ -138,8 +120,4 @@ output "privsubnet02-id" {
 
 output "eks-control-sg-id" {
    value = aws_security_group.EKS-Controlplane.id 
-}
-
-output "rds_sg_id" {
-   value = aws_security_group.rds_access.id
 }

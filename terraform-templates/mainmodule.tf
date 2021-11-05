@@ -2,16 +2,6 @@ module "network" {
 	source = "./network"
 }
 
-module "rds" {
-	source = "./rds"
-	privatesubnetid01 = module.network.privsubnet01-id
-	privatesubnetid02 = module.network.privsubnet02-id
-	postgres_adminusername = var.postgres_adminusername
-	postgres_adminpassword = var.postgres_adminpassword
-	database_name = var.database_name
-	rds_publicaccess = var.rds_publicaccess
-	rds_secgrp_id = module.network.rds_sg_id
-}
 module "eks" {
 	source = "./eks"
 	kubernetes_version = var.kubernetes_version
@@ -27,9 +17,3 @@ module "eks" {
 module "iam" {
 	source = "./iam"
 }
-
-output "rds_access_endpoint" {
-	value = module.rds.rds_endpoint
-}
-
-
